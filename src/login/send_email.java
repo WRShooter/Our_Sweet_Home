@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sun.mail.util.MailSSLSocketFactory;
+
 
 /**
  * Servlet implementation class send_email
@@ -43,6 +45,11 @@ public class send_email extends HttpServlet {
 			props.setProperty("mail.smtp.auth", "true");
 			props.setProperty("mail.host", Mail.emailSMTPHost);
 			props.setProperty("mail.transport.protocol", "smtp");
+			MailSSLSocketFactory sf = new MailSSLSocketFactory();
+	        sf.setTrustAllHosts(true);
+			props.put("mail.smtp.ssl.enable", "true");
+	        props.put("mail.smtp.ssl.socketFactory", sf);
+			
  
 			Session session = Session.getInstance(props);
 			// 设置debug，可以查看详细的发送log

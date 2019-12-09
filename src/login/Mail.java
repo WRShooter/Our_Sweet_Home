@@ -8,9 +8,9 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class Mail {
-		public static String emailAccount = "Sry_Blog@163.com";
-		public static String emailPassword = "tp52006211999";
-		public static String emailSMTPHost = "smtp.163.com";
+		public static String emailAccount = "364763908@qq.com";
+		public static String emailPassword = "bosaxllhnmrlbijc";
+		public static String emailSMTPHost = "smtp.qq.com";
 		public static String receiveMailAccount = "";
 		
 		public static  MimeMessage creatMimeMessage(Session session,String sendMail,String receiveMail,String html) throws MessagingException, IOException {
