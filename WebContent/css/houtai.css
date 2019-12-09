@@ -1,0 +1,95 @@
+.clearfix:after {       
+    content: "."; 
+    display: block;  
+    clear: both;
+    visibility: hidden;   
+    line-height: 0;   
+    height: 0;    
+    font-size:0; 
+}
+ 
+.clearfix { *zoom:1;}  
+
+
+
+.header {
+	position: fixed;
+    top:0;
+    left:0;
+    height:10%;
+    width:100%;
+	background-color: rgba(0, 0, 0,0.7);
+}
+
+.Blog_Title{
+	font-size: 30px;
+    position: relative;
+    color:#afafaf;
+    top: 50%;
+    margin-left: 20px;
+    transform: translateY(-50%);
+    float: left;
+}
+
+
+
+#Manager_Name {
+	margin-left: 63%;
+    margin-top: 0px;
+    color: grey;
+    float: left;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#log_out {
+    color: grey;
+	margin-right: 100px;
+    margin-top: 0px;
+    float: right;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#help {
+	color: grey;
+	margin-right: 30px;
+    margin-top: 0px;
+    float: right;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.content{
+	position: fixed;
+    top:10%;
+    left:0;
+	width:100%;
+	height:90%;
+	border: 1px solid black;
+}
+
+.left {
+	position: fixed;
+    top:10%;
+    left:0;
+    height:90%;
+    width:20%;
+    border: 1px solid black;
+}
+
+.right {
+	position: fixed;
+    top:10%;
+    left:20%;
+    height:90%;
+    width:80%;
+    border: 1px solid black;
+}
+
+.left-style{
+	list-style: none;
+}
