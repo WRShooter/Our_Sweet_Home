@@ -45,7 +45,7 @@
 		if (end > pageSize) {
 			pageSize = rowCount - start; 
 		}
-		String sql = "select user_name,password,user_email from user limit ?,?";
+		String sql = "select user_id,user_name,user_password,user_email from user limit ?,?";
 		stmlt = conn.prepareStatement(sql);
 		stmlt.setLong(1, start);
 		stmlt.setLong(2, pageSize);
@@ -62,13 +62,14 @@
 		</thead>
 	<%
 		while(rs.next()) {
-			String user_name = rs.getString(1);
-			String user_password = rs.getString(2);
-			String user_email = rs.getString(3);
+			String user_id = rs.getString(1);
+			String user_name = rs.getString(2);
+			String user_password = rs.getString(3);
+			String user_email = rs.getString(4);
 	%>
 		<tbody style="background: #eaeaea; text-align: center;">                  
             <tr style="background-color: white">         
-            	<td></td>               
+            	<td><%=user_id %></td>               
                 <td><%=user_name %></td>                        
                 <td><%=user_password %></td>                        
                 <td><%=user_email %></td>
@@ -94,14 +95,5 @@
 %>  
 </form>
 </body>
-<script type="text/javascript">
-$(function(){
-    //$('table tr:not(:first)').remove();
-    var len = $('table tr').length;
-    for(var i = 1;i<len;i++){
-        $('table tr:eq('+i+') td:first').text(i);
-    }
-        
-});
 </script>
 </html>

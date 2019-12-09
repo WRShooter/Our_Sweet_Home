@@ -21,10 +21,10 @@
 		<div class="left">
 			<ul class="left-style">
                 <li data-src="User_info.jsp"><span class="glyphicon glyphicon-user"></span> 用户管理</li>
-                <li data-src="roleList.action"><span class="glyphicon glyphicon-file"></span> 博客管理</li>
-                <li data-src="userVip.action"><span class="glyphicon glyphicon-thumbs-up"></span> 推荐管理</li>
-                <li data-src="roleList.action"><span class="glyphicon glyphicon-comment"></span> 评论管理</li>
-                <li data-src="roleList.action"><span class="glyphicon glyphicon-hdd"></span> 资源管理</li>
+                <li data-src="Blog_info.jsp"><span class="glyphicon glyphicon-file"></span> 博客管理</li>
+                <li data-src="Recommend_info.jsp"><span class="glyphicon glyphicon-thumbs-up"></span> 推荐管理</li>
+                <li data-src="Comment_info.jsp"><span class="glyphicon glyphicon-comment"></span> 评论管理</li>
+                <li data-src="Resouce_info.jsp"><span class="glyphicon glyphicon-hdd"></span> 资源管理</li>
             </ul>
 		</div>
 		<div class="right">

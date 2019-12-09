@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class DataMethod {
 	public boolean isSuccess_User(Connection conn, String userName, String password) throws SQLException {
 		boolean flag;
-		PreparedStatement stmt = conn.prepareStatement("select * from user where user_name=? and password=?");
+		PreparedStatement stmt = conn.prepareStatement("select * from user where user_name=? and user_password=?");
 		stmt.setString(1, userName);
 		stmt.setString(2, password);
 		ResultSet rs=stmt.executeQuery();
@@ -58,7 +58,7 @@ public class DataMethod {
 	}
 	
 	public void Update(Connection conn, String userName, String password) throws SQLException {
-		PreparedStatement stmt = conn.prepareStatement("update user set password=? where user_name=?");
+		PreparedStatement stmt = conn.prepareStatement("update user set user_password=? where user_name=?");
 		stmt.setString(2, userName);
 		stmt.setString(1, password);
 		stmt.executeUpdate();
@@ -67,7 +67,7 @@ public class DataMethod {
 	}
 	
 	public void Insert(Connection conn, String userName, String password, String email) throws SQLException {
-		PreparedStatement stmt = conn.prepareStatement("insert into user(user_name,password,user_email) values(?,?,?)");
+		PreparedStatement stmt = conn.prepareStatement("insert into user(user_name,user_password,user_email) values(?,?,?)");
 		stmt.setString(1, userName);
 		stmt.setString(2, password);
 		stmt.setString(3, email);

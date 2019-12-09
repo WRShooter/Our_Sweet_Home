@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>博客信息</title>
+<title>资源信息</title>
 </head>
 <body>
 
