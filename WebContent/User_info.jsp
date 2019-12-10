@@ -51,13 +51,29 @@
 		stmlt.setLong(2, pageSize);
 		rs = stmlt.executeQuery();
 	%>
-	<table border="1" style="height:80%;text-align: center;border-collapse: separate;border-spacing: 3px 3px; border:1px solid #eaeaea;">
+	<table border="1" style="margin-top:5%;text-align: center;border-collapse: separate;border-spacing: 3px 3px; border:1px solid #eaeaea;">
+		<tr style="text-align: center;">
+			<td style="width:100px;">用户编号&nbsp;&nbsp;&nbsp;</td>
+			<td style="width:150px;">用户账号&nbsp;&nbsp;&nbsp;</td>
+			<td style="width:200px;">用户密码&nbsp;&nbsp;&nbsp;</td>
+			<td style="width:200px;">用户邮箱&nbsp;&nbsp;&nbsp;</td>
+		</tr>
+		<tr>
+			<td><input style="text-align:center;width:100px;" type="text" name="id" id="user_id" placeholder="请输入待添加的用户id"></td>
+			<td><input style="text-align:center;width:150px;" type="text" name="name" id="user_name" placeholder="请输入待添加的用户账号"></td>
+			<td><input style="text-align:center;width:200px;" type="password" name="password" id="user_password" placeholder="请输入待添加的用户密码"></td>
+			<td><input style="text-align:center;width:200px;" type="email" name="email" id="user_email" placeholder="请输入待添加的email"></td>
+			<td><input type="button" id="btn" value="添加"/></td>
+		</tr>
+	</table>
+	<table id="tb" border="1" style="margin-top:2%;height:80%;text-align: center;border-collapse: separate;border-spacing: 3px 3px; border:1px solid #eaeaea;">
 		<thead>
-			<tr style="background:#d5d5d5;color: #fff; text-align: center;">
-				<td style="width:100px;"><h4>序号&nbsp;&nbsp;&nbsp;</h4></td>
-				<td style="width:150px;"><h4>用户账号&nbsp;&nbsp;&nbsp;</h4></td>
-				<td style="width:250px;"><h4>用户密码&nbsp;&nbsp;&nbsp;</h4></td>
-				<td style="width:250px;"><h4>用户邮箱&nbsp;&nbsp;&nbsp;</h4></td>
+			<tr style="height:20px;background:#d5d5d5;color: #fff; text-align: center;">
+				<td style="width:100px;">用户编号&nbsp;&nbsp;&nbsp;</td>
+				<td style="width:100px;">用户账号&nbsp;&nbsp;&nbsp;</td>
+				<td style="width:170px;">用户密码&nbsp;&nbsp;&nbsp;</td>
+				<td style="width:170px;">用户邮箱&nbsp;&nbsp;&nbsp;</td>
+				<td style="width:160px;">操作&nbsp;&nbsp;&nbsp;&nbsp;</td>
 			</tr>
 		</thead>
 	<%
@@ -68,32 +84,74 @@
 			String user_email = rs.getString(4);
 	%>
 		<tbody style="background: #eaeaea; text-align: center;">                  
-            <tr style="background-color: white">         
-            	<td><%=user_id %></td>               
+            <tr style="height:35px;background-color: white">         
+            	<td class="user_id"><%=user_id %></td>               
                 <td><%=user_name %></td>                        
                 <td><%=user_password %></td>                        
                 <td><%=user_email %></td>
+                <td><input type="button" class="del" value="删除"/></td>
             </tr>                
 		</tbody>
 	<%
 		}
 	%>
 	</table>
-	<form   Action= ""   method= "post">   
+	<form   Action= ""   method= "post" style="margin-left:80%;">   
 	<%    
-		for(int i=1;i<=pageCount;i++){   
-    	out.println("<a href=User_info.jsp?pageNow="+i+">["+i+"]</a>");   
-	}   
 	if(pageNow != 1){   
     	out.println( " <a  href=User_info.jsp?pageNow=1>首页</a> ");   
     	out.println( " <a   href=User_info.jsp?pageNow="+(pageNow - 1)+">上一页</a> ");   
 	}   
-	if(pageNow != pageCount){   
+	if((pageNow != pageCount)&&(pageCount !=0)){   
 	    out.println( " <a   href=User_info.jsp?pageNow="+ (pageNow + 1)+"> 下一页</a>");   
 	    out.println( " <a   href=User_info.jsp?pageNow="+ pageCount+"> 最后一页</a>");   
 	}   
 %>  
 </form>
 </body>
-</script>
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#btn").click(function(){
+			$.ajax({
+				type:'POST',
+				url :'User_Add',
+				data:{
+					id:$("#user_id").val(),
+					email:$("#user_email").val(),
+					name:$("#user_name").val(),
+					password:$("#user_password").val(),
+				},
+				success:function(data){
+					alert("添加成功。");
+					location.href='User_info.jsp';
+				},
+			});
+		})
+	})
+	</script>
+<script type="text/javascript">
+	$(function(){
+		$(".del").click(function(){
+			
+			var flag = confirm("确定要删除？");
+			var x = $(this).parent().parent().find(".user_id");
+			var y = x.eq(0).text()
+			alert(y);
+			if (flag){
+			$.ajax({
+				type:'POST',
+				url :'User_Del',
+				data:{
+					id:y,
+				},
+				success:function(data){
+					alert("删除成功。");
+					location.href='User_info.jsp';
+				},
+			});
+		}
+	})
+})
+	</script>
 </html>

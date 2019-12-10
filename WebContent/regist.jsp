@@ -48,7 +48,7 @@
 			if($("#email").val()){
 				$.ajax({
 					type:'POST',
-					url :'send_email',
+					url :'se nd_email',
 					data:{
 						email:$("#email").val(),
 					},

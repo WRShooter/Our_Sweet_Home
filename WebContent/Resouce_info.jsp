@@ -7,6 +7,6 @@
 <title>资源信息</title>
 </head>
 <body>
-
+	
 </body>
 </html>

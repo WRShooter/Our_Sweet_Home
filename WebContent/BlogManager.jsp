@@ -27,8 +27,8 @@
                 <li data-src="Resouce_info.jsp"><span class="glyphicon glyphicon-hdd"></span> 资源管理</li>
             </ul>
 		</div>
-		<div class="right">
-			<iframe style="width:80%;height:100%" src="User_info.jsp" id="aa"></iframe>
+		<div class="right" style="margin:0 auto;text-align:center;border: medium none;">
+			<iframe style="width:80%;height:100%;" src="User_info.jsp" frameborder="no"  id="aa"></iframe>
 		</div>
 	</div>
 	<script type="text/javascript">
