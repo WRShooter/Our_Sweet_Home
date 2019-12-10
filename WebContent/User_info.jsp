@@ -86,10 +86,10 @@
 		<tbody style="background: #eaeaea; text-align: center;">                  
             <tr style="height:35px;background-color: white">         
             	<td class="user_id"><%=user_id %></td>               
-                <td><%=user_name %></td>                        
-                <td><%=user_password %></td>                        
-                <td><%=user_email %></td>
-                <td><input type="button" class="del" value="删除"/></td>
+                <td class="user_name"><%=user_name %></td>                        
+                <td class="user_password"><%=user_password %></td>                        
+                <td class="user_email"><%=user_email %></td>
+                <td><input type="button" class="del" value="删除"/>｜<input type="button" class="edit" value="编辑"></td>
             </tr>                
 		</tbody>
 	<%
@@ -133,11 +133,9 @@
 <script type="text/javascript">
 	$(function(){
 		$(".del").click(function(){
-			
 			var flag = confirm("确定要删除？");
 			var x = $(this).parent().parent().find(".user_id");
-			var y = x.eq(0).text()
-			alert(y);
+			var y = x.eq(0).text();
 			if (flag){
 			$.ajax({
 				type:'POST',
@@ -153,5 +151,42 @@
 		}
 	})
 })
-	</script>
+</script>
+<script type="text/javascript">
+$(function(){           
+    $(".edit").click(function(){
+        var user_id = this.parentNode.parentNode.getElementsByTagName("td")[0];
+        var user_name = this.parentNode.parentNode.getElementsByTagName("td")[1];
+        var user_password = this.parentNode.parentNode.getElementsByTagName("td")[2];
+        var user_email = this.parentNode.parentNode.getElementsByTagName("td")[3];
+        if(this.value == "编辑"){
+            this.value = "确定";
+            //user_id.innerHTML ="<input value='"+user_id.innerHTML+"'/>";
+            user_name.innerHTML ="<input value='"+user_name.innerHTML+"'/>";
+            user_password.innerHTML ="<input value='"+user_password.innerHTML+"'/>";
+            user_email.innerHTML ="<input value='"+user_email.innerHTML+"'/>";
+        }else{
+        	//user_id.innerHTML =user_id.getElementsByTagName("input")[0].value;
+        	user_name.innerHTML =user_name.getElementsByTagName("input")[0].value;
+        	user_password.innerHTML =user_password.getElementsByTagName("input")[0].value;
+        	user_email.innerHTML =user_email.getElementsByTagName("input")[0].value;
+        	$.ajax({
+        		type:'POST',
+				url :'User_Edit',
+				data:{
+					id:user_id.innerHTML,
+					name:user_name.innerHTML,
+					password:user_password.innerHTML,
+					email:user_email.innerHTML,
+				},
+				success:function(data){
+					alert("修改成功。");
+					location.href='User_info.jsp';
+				},
+        	});
+            this.value = "编辑";
+        }
+    })
+}); 
+</script>
 </html>
