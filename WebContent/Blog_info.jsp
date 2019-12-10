@@ -176,7 +176,6 @@ $(function(){
 					title:blog_title.innerHTML,
 				},
 				success:function(data){
-					alert("修改成功。");
 					location.href='Blog_info.jsp';
 				},
         	});

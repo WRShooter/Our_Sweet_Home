@@ -180,7 +180,6 @@ $(function(){
 					email:user_email.innerHTML,
 				},
 				success:function(data){
-					alert("修改成功。");
 					location.href='User_info.jsp';
 				},
         	});
