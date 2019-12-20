@@ -45,6 +45,7 @@ public class manager_login extends HttpServlet {
 			try {
 				if(method.isSuccess_Manager(method.DataConn(), manager_name, manager_password)) {
 					request.getSession().setAttribute("Manager_Name", manager_name);
+					request.getSession().setAttribute("user_name", manager_name);
 					response.sendRedirect("BlogManager.jsp");
 				} else {
 					String script = "<script>alert('用户名或密码错误，请重新登陆');location.href='Manager_login.jsp'</script>";

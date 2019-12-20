@@ -6,6 +6,11 @@
 <meta charset="UTF-8">
 <title>博客后台管理系统</title>
 <link type="text/css" rel="stylesheet" href="css/manager.css">
+<script type="text/javascript">
+   	 		function regist() {
+      		window.location.href = 'regist_Manager.jsp';
+    	}
+		</script>
 </head>
 <body>
 	<div class="login_block">
@@ -15,6 +20,7 @@
 				<p><label class="lable_input">密码：</label><input type="password" name="manager_password" class="text_input" placeholder="请输入您的密码"><br/></p>
 				<div id="login_control">
 					<input type="submit" value="登录">
+					<input type="button" value="注册" onclick="regist()"/>
 				</div>
 			</form>
 		</div>

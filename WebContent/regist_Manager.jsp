@@ -10,11 +10,11 @@
 	<body>
 		<div class="regist_block">
 			<p id="#regist_logo"><img src="image/logo.png" width="70px" height="48.3px"></p>
-			<form action="regist" method="POST">
-				<p><label class="lable_input">请输入账号：</label><input type="text" name="user_name" class="text_input" placeholder="请输入您的账号"><br/></p>
-				<p><label class="lable_input">请输入密码：</label><input type="password" name="user_password1" class="text_input" placeholder="请输入您的密码"><br/></p>
-				<p><label class="lable_input">请确认密码：</label><input type="password" name="user_password2" class="text_input" placeholder="重复输入密码"><br/></p>
-				<p><label class="lable_input">请输入邮箱：</label><input type="email" name="user_text" id="email" placeholder="请输入您的邮箱"><br/></p>
+			<form action="regist_Manager" method="POST">
+				<p><label class="lable_input">请输入账号：</label><input type="text" name="manager_Name" class="text_input" placeholder="请输入您的账号"><br/></p>
+				<p><label class="lable_input">请输入密码：</label><input type="password" name="manager_Password1" class="text_input" placeholder="请输入您的密码"><br/></p>
+				<p><label class="lable_input">请确认密码：</label><input type="password" name="manager_Password2" class="text_input" placeholder="重复输入密码"><br/></p>
+				<p><label class="lable_input">请输入邮箱：</label><input type="email" name="manager_email" id="email" placeholder="请输入您的邮箱"><br/></p>
 				<p><label class="lable_input">输入验证码：</label><input type="text" name="yanzhengma" class="text_input" placeholder="请输入邮箱验证码"><input type="button" id="btn" value="免费获取验证码" onclick="settime(this)" /></p>
 				<div id="regist_control">
 					<input type="submit" value="注册">
@@ -48,7 +48,7 @@
 			if($("#email").val()){
 				$.ajax({
 					type:'POST',
-					url :'se nd_email',
+					url :'send_email',
 					data:{
 						email:$("#email").val(),
 					},

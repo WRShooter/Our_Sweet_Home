@@ -77,9 +77,30 @@ public class DataMethod {
 		conn.close();
 	}
 	
+	public void Insert_Manager(Connection conn, String managerName, String managerword, String email) throws SQLException {
+		PreparedStatement stmt = conn.prepareStatement("insert into manager(manager_name,manager_password,manager_email) values(?,?,?)");
+		stmt.setString(1, managerName);
+		stmt.setString(2, managerword);
+		stmt.setString(3, email);
+		stmt.executeUpdate();
+		
+		stmt.close();
+		conn.close();
+	}
+	
+	public void insertManagerName(Connection conn, String managerName,String email) throws SQLException {
+		PreparedStatement stmt = conn.prepareStatement("insert into profile(manager_Name,manager_email) values(?,?)");
+		stmt.setString(1, managerName);
+		stmt.setString(2, email);
+		stmt.executeUpdate();
+		
+		stmt.close();
+		conn.close();
+	}
+	
 	public Connection DataConn() throws SQLException, ClassNotFoundException {
 		DataValue value = new DataValue();
-		Class.forName("com.mysql.jdbc.Driver");
+		Class.forName("com.mysql.cj.jdbc.Driver");
 		String url=value.GetDataBaseValue_Url();
 		String loginName=value.GetDataBaseValue_loginName();
 		String loginPass=value.GetDataBaseValue_loginPass();

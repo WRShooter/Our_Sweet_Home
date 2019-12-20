@@ -43,7 +43,7 @@ public class login extends HttpServlet {
 			try {
 				if(method.isSuccess_User(method.DataConn(), login_name, login_pwd)) {
 					request.getSession().setAttribute("user_name", login_name);
-					response.sendRedirect("BlogManager.jsp");
+					response.sendRedirect("Image.jsp");
 				} else {
 					String script = "<script>alert('用户名或密码错误，请重新登陆');location.href='login.jsp'</script>";
 					response.getWriter().println(script);
